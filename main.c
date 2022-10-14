@@ -1,51 +1,81 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define Name "Dmytro"
-#define LastName "Yakovenko"
-#define GroupName "RE-21"
-#define Faculty "RTF"
-#define University "Igor Sikorsky KPI"
+#include <conio.h>
 int main()
 {
-    unsigned int age;
- unsigned int semestr;
- float admissionScore;
- int grade1;
- int grade2;
- int grade3;
- int grade4;
- int grade5;
- double averageGrade;
-printf("%s %s Enter following data.\n", Name, LastName);
+double x1,x2,delta,F;
+unsigned int N,n;
+unsigned int variant;
+printf("Enter variant (1 or 2)\n");
+    scanf("%d",&variant);
+while(variant!= 1  &&  variant!= 2)
+{
+printf("Read the instruction carefully!\n");
+    scanf("%d",&variant);
+}
+system("cls");
+if(variant == 1)
+    {
+    printf("\tEnter x1: ");
+        scanf("%lf",&x1);
+    printf("\n\tEnter x2: ");
+        scanf("%lf",&x2);
+    printf("\n\tEnter N(N can take values >1): ");
+        scanf("%d",&N);
+    while(N<=2)
+            {
+            printf("Read the instruction carefully!\n");
+                scanf("%d",&N);
+            }
+    printf("\t_________________________________________________\n");
+    printf("\t|\tN\t|\tX\t|\tF(x)\t|\n");
+    printf("\t_________________________________________________\n");
+       delta=(x2-x1)/(N-1);
+    for(n=1;n<=N;n++)
+    {
+        F=(-x1*x1*x1/25)+(10*x1*x1)-15000;
+    printf("\n\t|\t%d\t|\t%.2f\t|\t%.2f|\n",n,x1,F);
+    printf("\t_________________________________________________\n");
+    x1=x1+delta;
+    if(n%10==0)
+    {
+        printf("\nPress any key to continue...");
+        getch();
+    }
 
- printf("Enter semestr:");
- scanf("%u", &semestr);
- printf("Enter your admission score: ");
- scanf("%f", &admissionScore);
- printf("Enter grade #1: ");
- scanf("%d", &grade1);
- printf("Enter grade #2:");
- scanf("%d", &grade2);
- printf("Enter grade #3:");
- scanf("%d", &grade3);
- printf("Enter grade #4: ");
- scanf("%d", &grade4);
- printf("Enter grade #5: ");
- scanf("%d", &grade5);
- printf("Enter your age: ");
- scanf("%u", &age);
- averageGrade = (double)(grade1 + grade2 + grade3 + grade4 + grade5 ) /5;
- system("cls");
- printf("%s", University);
- printf("\n%s", Faculty);
- printf("\n%s", GroupName);
- printf("\n***************");
- printf("\nstudent: %s %s", Name, LastName );
- printf("\nage: %u", age);
- printf("\nsemestr: %u", semestr);
- printf("\n===============");
- printf("\nadmission score: %.1f", admissionScore);
- printf("\naverage grade = %.2f", averageGrade);
- printf("\n");
+    }
+    }
+if (variant==2){
+    printf("\tEnter x1: ");
+        scanf("%lf",&x1);
+    printf("\n\tEnter x2(): ");
+        scanf("%lf",&x2);
+    printf("\n\tEnter delta: ");
+        scanf("%lf",&delta);
+    int n=1;
+
+    printf("\t_________________________________________________\n");
+    printf("\t|\tN\t|\tX\t|\tF(x)\t|\n");
+    printf("\t_________________________________________________\n");
+
+    while(x1<=x2)
+
+    {
+     F=(-x1*x1*x1/25)+(10*x1*x1)-15000;
+    printf("\n|%5.d|%18.f|%21.f|\n",n,x1,F);
+    if(n%10==0)
+    {
+
+
+        printf("\nPress any key to continue...");
+        getch();
+    }
+
+
+    x1=x1+delta;
+    n++;
+    }
+  }
     return 0;
 }
