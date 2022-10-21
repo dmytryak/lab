@@ -1,81 +1,35 @@
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <conio.h>
+
 int main()
 {
-double x1,x2,delta,F;
-unsigned int N,n;
-unsigned int variant;
-printf("Enter variant (1 or 2)\n");
-    scanf("%d",&variant);
-while(variant!= 1  &&  variant!= 2)
-{
-printf("Read the instruction carefully!\n");
-    scanf("%d",&variant);
-}
-system("cls");
-if(variant == 1)
-    {
-    printf("\tEnter x1: ");
-        scanf("%lf",&x1);
-    printf("\n\tEnter x2: ");
-        scanf("%lf",&x2);
-    printf("\n\tEnter N(N can take values >1): ");
-        scanf("%d",&N);
-    while(N<=2)
-            {
-            printf("Read the instruction carefully!\n");
-                scanf("%d",&N);
-            }
-    printf("\t_________________________________________________\n");
-    printf("\t|\tN\t|\tX\t|\tF(x)\t|\n");
-    printf("\t_________________________________________________\n");
-       delta=(x2-x1)/(N-1);
-    for(n=1;n<=N;n++)
-    {
-        F=(-x1*x1*x1/25)+(10*x1*x1)-15000;
-    printf("\n\t|\t%d\t|\t%.2f\t|\t%.2f|\n",n,x1,F);
-    printf("\t_________________________________________________\n");
-    x1=x1+delta;
-    if(n%10==0)
-    {
-        printf("\nPress any key to continue...");
-        getch();
+    double x,y;
+    printf("Enter x value:\n");
+    scanf("%lf", &x);
+    if (x>=-10 && x<-5){
+        system("cls");
+        printf("You chose equation y=pow(3,fabs(x-1))-fabs(x+1)/pow(exp(1),2) at x=%.2lf\n",x);
+        y=pow(3,fabs(x-1))-fabs(x+1)/pow(exp(1),2);
+        printf("Answer:y=%lf\n",y);
     }
-
+    else if(x>=-1 && x<1){
+        system("cls");
+        printf("You chose equation  y=(2*fabs(sin(x/2)))/(cos(x-1)+5) at x=%.2lf\n",x);
+        y=(2*fabs(sin(x/2)))/(cos(x-1)+5);
+        printf("Answer:y=%lf\n",y);
     }
+    else if(x>=5 && x<10){
+        system("cls");
+        printf("You chose equation y=0.5 at x=%.2lf\n",x);
+        printf("Answer:y=0.5",y);
     }
-if (variant==2){
-    printf("\tEnter x1: ");
-        scanf("%lf",&x1);
-    printf("\n\tEnter x2(): ");
-        scanf("%lf",&x2);
-    printf("\n\tEnter delta: ");
-        scanf("%lf",&delta);
-    int n=1;
-
-    printf("\t_________________________________________________\n");
-    printf("\t|\tN\t|\tX\t|\tF(x)\t|\n");
-    printf("\t_________________________________________________\n");
-
-    while(x1<=x2)
-
-    {
-     F=(-x1*x1*x1/25)+(10*x1*x1)-15000;
-    printf("\n|%5.d|%18.f|%21.f|\n",n,x1,F);
-    if(n%10==0)
-    {
-
-
-        printf("\nPress any key to continue...");
-        getch();
+    else{
+        system("cls");
+        printf("You chose equation y=x/100 at x=%.2lf\n",x);
+        y=x/100;
+        printf("Answer:y=%lf\n",y);
     }
-
-
-    x1=x1+delta;
-    n++;
-    }
-  }
     return 0;
 }
